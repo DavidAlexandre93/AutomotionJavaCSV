@@ -16,29 +16,37 @@ import java.util.List;
  */
 public class LerLinhasStringsCsv 
 {
+	
+	// Classe para listar todos os dados na planilha em array
 	public static void main(String[] args) throws IOException {
 
-        Reader reader = Files.newBufferedReader(Paths.get("src/main/java/massadados/pessoas.csv"));
+        Reader reader = Files.newBufferedReader(Paths.get("src/main/java/massadados/SampleAppData.csv"));
         CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
         
-        
-        List<String[]> pessoas = csvReader.readAll();
-        for (String[] pessoa : pessoas)
+        List<String[]> SampleAppData = csvReader.readAll();
+        for (String[] SampleData : SampleAppData)
         	
-        	//System.out.println(pessoa[0]);
-            System.out.println("Name : " + pessoa[0] + " - Idade : " + pessoa[1] + " - Email : " + pessoa[2]);
-
-//        List<String[]> SampleAppData = csvReader.readAll();
-//        for (String[] SampleData : SampleAppData)
-//            System.out.println("FlightNumber : " + SampleData[0] + 
-//            		           " - Passengers : " + SampleData[1] + 
-//            		           " - Class : " + SampleData[2] +
-//            		           " - On : + " + SampleData[3] +
-//            		           " - Departing : " + SampleData[4] +
-//            		           " - From : " + SampleData[5] +
-//            		           " - Arriving In : " + SampleData[6] +
-//            		           " - OrderNumber : " + SampleData[7]);
-//
-//    }
+            System.out.println("FlightNumber : " + SampleData[0] + 
+           		           " - Passengers : " + SampleData[1] + 
+            		           " - Class : " + SampleData[2] +
+            		           " - On : " + SampleData[3] +
+            		           " - DepartingFrom : " + SampleData[4] +
+            		           " - ArrivingIn : " + SampleData[5] +
+            		           " - OrderNumber : " + SampleData[6]);   
+	}
+	
+	// Classe para setar apenas uma string preferida do array
+	public String FlightNumber() throws IOException {
+		
+		 Reader reader = Files.newBufferedReader(Paths.get("src/main/java/massadados/SampleAppData.csv"));
+	        CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
+	        
+	        List<String[]> SampleAppData = csvReader.readAll();
+	        for (String[] SampleData : SampleAppData)
+	        	
+	        	return SampleData[0];
+			return null;
+		
+		
 	}
 }
